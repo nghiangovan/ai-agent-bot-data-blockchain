@@ -1,0 +1,33 @@
+# pull model
+./download_model llama3.2
+
+
+# pull by docker
+docker exec -it ollama ollama pull llama3.2
+
+
+# Pull the mxbai-embed-large model
+docker exec -it ollama ollama pull mxbai-embed-large
+
+
+# Check if the model is installed
+docker exec -it ollama ollama list | grep mxbai-embed-large
+
+
+# Test the embedding model with a simple text
+docker exec -it ollama ollama run mxbai-embed-large "Hello, world!"
+
+
+# Check if container is running
+docker ps | grep ollama
+
+# Check container logs
+docker logs ollama
+
+
+# Restart the container if needed
+docker restart ollama
+
+# Remove and re-pull if corrupted
+docker exec -it ollama ollama rm mxbai-embed-large
+docker exec -it ollama ollama pull mxbai-embed-large
