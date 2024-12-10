@@ -15,7 +15,7 @@ docker exec -it ollama ollama list | grep mxbai-embed-large
 
 
 # Test the embedding model with a simple text
-docker exec -it ollama ollama run mxbai-embed-large "Hello, world!"
+docker exec -it ollama ollama run llama3.2 "Hello, world!"
 
 
 # Check if container is running

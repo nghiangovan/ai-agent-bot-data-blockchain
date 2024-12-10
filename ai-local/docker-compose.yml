@@ -1,20 +1,21 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  ollama:
-    image: ollama/ollama
-    container_name: ollama
-    ports:
-      - "11434:11434"  # Default Ollama API port
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-    volumes:
-      - ollama_data:/root/.ollama  # Persist model data
+    ollama:
+        image: ollama/ollama
+        container_name: ollama
+        ports:
+            - "11434:11434" # Default Ollama API port
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          count: 1
+                          capabilities: [gpu]
+        volumes:
+            - ollama_data:/root/.ollama # Persist model data
+        command: serve # This is the correct command to start Ollama server
 
 volumes:
-  ollama_data:
+    ollama_data:
